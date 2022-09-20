@@ -1,0 +1,49 @@
+#wrapper {
+    text-align: center;
+}
+
+textarea {
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #2d2459;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 15px 75px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+}
+
+#Downloads {
+    text-align: center;
+}
+
+audio {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+p {
+    font-family: cursive, Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+}

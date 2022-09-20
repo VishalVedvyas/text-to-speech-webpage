@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text-to-Speech</title>
+        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <script>
+            async function setAudio(url) {
+                if(document.getElementById("myinputtext").value == '')
+                {
+                    alert('Please enter your input and then submit :)');
+                    return;
+                }
+
+                document.getElementById("Downloads").innerHTML = 
+                `
+                <p>Your text has been succesfully converted to audio!</p>
+                <audio controls id="player" title="audio.mp3">
+                    <source type="audio/mpeg">
+                    Your browser does not support the audio format.
+                </audio>
+                </br>
+                <button class="button"><a href="http://localhost:8080/downloadaudio"><i class="fa fa-download"></i> Click to download</a></button>`;
+                document.querySelector('audio').src = URL.createObjectURL(new Blob([ await (await fetch(url, {
+                        method: "POST",
+                        body: JSON.stringify({
+                            text: document.getElementById("myinputtext").value
+                        }),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    }
+                )).arrayBuffer() ]));
+            }
+        </script>
+        <div id="wrapper">
+            <div>
+                <p>Welcome to the Text-to-Speech convertor home page!</p>
+                <textarea id="myinputtext" placeholder="Enter input text..."></textarea>
+                <br>
+                <input type="button" class="button" value="Convert to audio file" onclick="setAudio('http://localhost:8080/getaudio')">
+                <br>
+            </div>
+            <div id="Downloads">
+            </div>
+        </div>
+    </body>
+</html>
