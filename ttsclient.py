@@ -1,9 +1,3 @@
-"""Synthesizes speech from the input string of text or ssml.
-Make sure to be working in a virtual environment.
-
-Note: ssml must be well-formed according to:
-    https://www.w3.org/TR/speech-synthesis/
-"""
 from google.cloud import texttospeech
 
 class TTSClient:
