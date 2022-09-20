@@ -7,6 +7,8 @@ Create a separate virtual environment to install the required dependencies (Read
 Install the necessary dependencies using -
 pip install -r requirements.txt
 
+You will need an google cloud service account to authenticate your TTS API requests. Follow [this](https://codelabs.developers.google.com/codelabs/cloud-text-speech-python3#3) guide to create your credentials
+
 Run the server using the following command -
 python main.py
 
